@@ -1,11 +1,10 @@
-
 package Fuentes;
-import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Vector;
 
 public class Biblioteca {
-    private Vector<Libro> listaLibros;
+    Vector<Libro> listaLibros;
     
     public Biblioteca(){
         this.listaLibros = new Vector<Libro>();
@@ -13,31 +12,31 @@ public class Biblioteca {
     public void addLibro(Libro libro){
         this.listaLibros.add(libro);
     }
-  
-    public void ordenarLibrosPorTitulo(){
-        Collections.sort(listaLibros, new ComparadorLibros());
-    }
     
-    public void ordenarLibrosPorAutor(){
-       Collections.sort(listaLibros, new ComparadorLibrosPorAutor());
-    }
-     
-    public Object buscarLibroBarato(){
-       return Collections.min(listaLibros, new ComparadorLibrosPrecio());
-    }
-    
-    public Object buscarLibroCaro(){
-        return Collections.max(listaLibros, new ComparadorLibrosPrecio());
-    }
-    
-    public Object buscarLibroAntiguo(){
+    public Object ordenarLibroReciente() {
         return Collections.min(listaLibros, new ComparadorLibrosEdad());
     }
     
-     public Object buscarLibroActual(){
+    public Object ordenarLibroLongevo() {
         return Collections.max(listaLibros, new ComparadorLibrosEdad());
     }
-     
+    
+    public Object ordenarLibroPrecioMenor() {
+        return Collections.min(listaLibros, new ComparadorLibrosPrecio());
+    }
+    
+    public Object ordenarLibroPrecioMayor() {
+        return Collections.max(listaLibros, new ComparadorLibrosPrecio());
+    }
+    
+    public void ordenarLibrosTitulo() {
+        Collections.sort(listaLibros, new ComparadorLibrosTitulo());
+    }
+    
+    public void ordenarLibroAutor() {
+        Collections.sort(listaLibros, new ComparadorLibrosPorAutor());
+    }
+  
     @Override
     public String toString() {
         String salida="";
@@ -46,7 +45,4 @@ public class Biblioteca {
         }
         return salida;
     }
-    
 }
-
-
