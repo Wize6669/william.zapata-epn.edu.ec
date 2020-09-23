@@ -1,11 +1,10 @@
-
 package Fuentes;
 
 public class Libro {
     private String titulo;
     private Fecha fechaEdicion;
     private Autor autor;
-    private double precio;
+    private Double precio;
     
     
     public Libro (){
@@ -13,7 +12,7 @@ public class Libro {
         fechaEdicion = new Fecha(); //Composición
     }
     
-    public void setLibro(String nombre,String fechaNacimiento,String fecha, String titulo, int precio){
+    public void setLibro(String nombre,String fechaNacimiento,String fecha, String titulo, Double precio){
         autor.setAutor(fechaNacimiento, nombre);
         fechaEdicion.setFecha(fecha);
         this.titulo = titulo;
@@ -24,23 +23,22 @@ public class Libro {
         return titulo;
     }
 
+    public Fecha getFechaEdicion() {
+        return fechaEdicion;
+    }
+
     public Autor getAutor() {
         return autor;
     }
 
-    public double getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
-
-    public Fecha getFechaEdicion() {
-        return fechaEdicion;
-    }
-    
-    
+     
     @Override
     public String toString() {
-        return "\nTitulo: " + titulo + "\nFecha de Edicion: " + fechaEdicion + autor.toString() 
-                + "\n Precio: " + this.precio;
+        return "\nTitulo: " + titulo + "\nFecha de Publicación: " + fechaEdicion 
+                + autor.toString() + "\nPrecio: "+precio;
     }  
     
-} 
+}
